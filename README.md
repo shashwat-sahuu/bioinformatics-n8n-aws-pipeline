@@ -1,51 +1,43 @@
-# Automated Cloud-Based Bioinformatics Pipeline using n8n & AWS
+# End-to-End Bioinformatics Variant Calling Pipeline (AWS + Docker + n8n)
 
-## Overview
-This project implements an end-to-end automated bioinformatics pipeline using **n8n** for workflow orchestration, **Docker** for reproducible execution, and **AWS** for scalable cloud infrastructure.
+## 📌 Project Overview
+This project implements an end-to-end automated variant calling pipeline using
+AWS cloud infrastructure, Docker containers, and n8n workflow automation.
 
-The pipeline automatically processes sequencing data (FASTQ), performs alignment and variant calling, stores results in cloud storage, and sends notifications upon completion.
+The pipeline performs:
+- Raw sequencing data processing
+- Quality control
+- Alignment
+- Variant calling
+- Automated execution and monitoring
 
----
+## 🧱 Tech Stack
+- **AWS**: EC2, S3
+- **Docker**: Containerized bioinformatics tools
+- **n8n**: Workflow orchestration
+- **Linux Bash**: Automation scripts
+- **GitHub**: Version control
 
-## Architecture
-User Upload → n8n Webhook → AWS S3 → EC2 (Docker) → Variant Calling → S3 → Notification
+## 📂 Project Structure
 
----
+## 🚀 Pipeline Flow
+1. Upload FASTQ files to S3
+2. EC2 pulls data from S3
+3. Docker container runs variant calling
+4. Results stored back in S3
+5. n8n monitors and triggers pipeline
 
-## Tech Stack
-- n8n (Workflow Automation)
-- AWS S3, EC2, IAM
-- Docker
-- Linux & Bash
-- Bioinformatics tools (BWA, SAMtools, FreeBayes)
+## 🎯 Learning Outcomes
+- Cloud-based bioinformatics pipelines
+- DevOps practices in genomics
+- Workflow automation
+- Scalable data processing
 
----
+## 📌 Future Enhancements
+- CI/CD using GitHub Actions
+- Kubernetes deployment
+- Multi-sample parallel processing
+- Annotation using VEP/ANNOVAR
 
-## Workflow Steps
-1. Webhook triggers pipeline
-2. FASTQ uploaded to S3
-3. EC2 instance runs Dockerized bioinformatics pipeline
-4. Variant calling generates VCF
-5. Results stored in S3
-6. Email/Slack notification sent
-
----
-
-## Key Features
-- Fully automated pipeline
-- Cloud-native execution
-- Dockerized bioinformatics workflow
-- Error handling and conditional logic
-- Production-style orchestration
-
----
-
-## Use Cases
-- Variant calling automation
-- Cloud bioinformatics workflows
-- Research and production pipelines
-
----
-
-## Author
-Shashwat Sahu
+Author 
+Shashwat sahu
