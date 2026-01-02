@@ -1,1 +1,19 @@
+{
+  "name": "Variant Calling Pipeline",
+  "nodes": [
+    {
+      "name": "Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [200, 300]
+    },
+    {
+      "name": "Run EC2 Script",
+      "type": "n8n-nodes-base.executeCommand",
+      "position": [450, 300],
+      "parameters": {
+        "command": "bash run_pipeline.sh"
+      }
+    }
+  ]
+}
 
