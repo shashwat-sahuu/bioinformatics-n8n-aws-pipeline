@@ -1,20 +1,12 @@
 #!/bin/bash
+set -e
 
-echo "Starting Variant Calling Pipeline..."
+echo "Pipeline started"
 
-FASTQ1=$1
-FASTQ2=$2
-REF=$3
+bash scripts/fastqc.sh
+bash scripts/align.sh
+bash scripts/variant_call.sh
+bash scripts/annotate.sh
 
-bwa index $REF
-bwa mem $REF $FASTQ1 $FASTQ2 > aligned.sam
-
-samtools view -Sb aligned.sam > aligned.bam
-samtools sort aligned.bam -o sorted.bam
-samtools index sorted.bam
-
-bcftools mpileup -f $REF sorted.bam | \
-bcftools call -mv -o variants.vcf
-
-echo "Pipeline Completed Successfully"
+echo "Pipeline completed successfully"
 
