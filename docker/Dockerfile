@@ -1,18 +1,23 @@
 FROM ubuntu:22.04
 
-LABEL maintainer="Shashwat Sahu"
-
 RUN apt-get update && apt-get install -y \
     bwa \
     samtools \
+    freebayes \
     bcftools \
     fastqc \
+    openjdk-11-jre \
     wget \
-    unzip \
-    python3 \
-    && rm -rf /var/lib/apt/lists/*
+    unzip
+
+# Install SnpEff
+RUN wget https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip \
+    && unzip snpEff_latest_core.zip \
+    && mv snpEff /opt/snpeff
+
+ENV PATH="/opt/snpeff:$PATH"
 
 WORKDIR /pipeline
 
-CMD ["bash"]
+CMD ["bash", "scripts/run_pipeline.sh"]
 
