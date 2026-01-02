@@ -1,1 +1,12 @@
+#!/bin/bash
+
+sudo apt update
+sudo apt install -y docker.io git
+
+sudo systemctl start docker
+sudo systemctl enable docker
+
+sudo usermod -aG docker ubuntu
+
+echo "EC2 setup completed"
 
