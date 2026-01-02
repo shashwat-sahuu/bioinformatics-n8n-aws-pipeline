@@ -41,5 +41,19 @@ Tech Stack
 - Multi-sample parallel processing
 - Annotation using VEP/ANNOVAR
 
+
+
+
+
+# How to Run
+
+1. Clone the repo:
+   git clone <repo_link>
+2. Install dependencies:
+   pip install -r requirements.txt
+3. Run pipeline:
+   python main.py --input sample_data/ --output results/
+
+
 Author 
 Shashwat sahu
