@@ -1,12 +1,17 @@
 #!/bin/bash
-set -e
 
 echo "Pipeline started"
 
-bash scripts/fastqc.sh
-bash scripts/align.sh
-bash scripts/variant_call.sh
-bash scripts/annotate.sh
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+INPUT_FASTQ=$1
+
+bash "$SCRIPT_DIR/fastqc.sh" "$INPUT_FASTQ"
+bash "$SCRIPT_DIR/align.sh" "$INPUT_FASTQ"
+bash "$SCRIPT_DIR/variant_call.sh"
+bash "$SCRIPT_DIR/annotate.sh"
 
 echo "Pipeline completed successfully"
+
+
 
