@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+echo "Pipeline started"
+
+bash fastqc.sh
+bash align.sh
+bash variant_call.sh
+bash annotate.sh
+
+echo "Pipeline completed successfully"
+
+
+
+
