@@ -55,5 +55,22 @@ Tech Stack
    python main.py --input sample_data/ --output results/
 
 
+
+## Sample Data
+
+Sample input files are provided in the `sample_data/` directory:
+
+- `sample_R1.fastq` – Forward reads
+- `sample_R2.fastq` – Reverse reads
+- `reference.fasta` – Reference genome
+
+### Run Example
+```bash
+python main.py \
+  --reads1 sample_data/sample_R1.fastq \
+  --reads2 sample_data/sample_R2.fastq \
+  --reference sample_data/reference.fasta \
+  --output results/
+
 Author 
 Shashwat sahu
