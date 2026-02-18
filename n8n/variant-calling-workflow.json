@@ -11,9 +11,8 @@
       "type": "n8n-nodes-base.executeCommand",
       "position": [450, 300],
       "parameters": {
-        "command": "bash run_pipeline.sh"
+        "command": "bash scripts/run_pipeline.sh"
       }
     }
   ]
 }
-

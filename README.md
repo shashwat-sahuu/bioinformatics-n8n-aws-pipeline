@@ -72,5 +72,11 @@ python main.py \
   --reference sample_data/reference.fasta \
   --output results/
 
+## n8n Workflow Notes
+
+The `n8n/variant-calling-workflow.json` Execute Command node runs `bash scripts/run_pipeline.sh`.
+Configure the Execute Command node to run with the repository root as the working directory
+so the relative `scripts/` path resolves correctly.
+
 Author 
 Shashwat sahu
