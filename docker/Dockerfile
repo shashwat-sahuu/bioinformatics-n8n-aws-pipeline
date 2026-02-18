@@ -1,31 +1,17 @@
-FROM ubuntu:22.04
+name: Build Docker Image
 
-ENV DEBIAN_FRONTEND=noninteractive
+on:
+  push:
+    branches: [ main ]
 
-RUN apt-get update && apt-get install -y \
-    bwa \
-    samtools \
-    freebayes \
-    bcftools \
-    fastqc \
-    openjdk-11-jre \
-    wget \
-    unzip \
-    git \
-    && apt-get clean
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-# Install SnpEff
-RUN wget https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip \
-    && unzip snpEff_latest_core.zip \
-    && mv snpEff /opt/snpeff \
-    && rm snpEff_latest_core.zip
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-ENV PATH="/opt/snpeff:$PATH"
+      - name: Build Docker image
+        run: docker build -t bioinformatics-pipeline .
 
-WORKDIR /pipeline
-
-COPY . .
-
-RUN chmod +x scripts/*.sh
-
-CMD ["bash", "scripts/run_pipeline.sh"]
